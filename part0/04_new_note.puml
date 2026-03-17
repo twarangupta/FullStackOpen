@@ -1,0 +1,24 @@
+@startuml 04_new_note
+
+browser -> server : HTTP POST /new_note
+
+note over server
+Create new note object
+Add to notes array
+end note
+
+server --> browser : 302 redirect /notes
+
+browser -> server : GET /notes
+server --> browser : HTML page
+
+browser -> server : GET main.css
+server --> browser : CSS
+
+browser -> server : GET main.js
+server --> browser : JS
+
+browser -> server : GET data.json
+server --> browser : JSON notes
+
+@enduml
